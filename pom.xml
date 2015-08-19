@@ -100,10 +100,8 @@
                         <goals>
                             <goal>prepare-agent-integration</goal>
                         </goals>
-                        <!--<phase>compile</phase>-->
                         <configuration>
                             <destFile>${project.build.directory}/jacoco-it.exec</destFile>
-                            <!--<propertyName>jacoco.agent.it.arg</propertyName>-->
                         </configuration>
                     </execution>
                 </executions>
@@ -129,7 +127,7 @@
                     <systemPropertyVariables>
                         <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
                         <!-- Doesnt work, it never reach the container, use arquillian.xml for javaVmArguments -->
-                        <!--<javaVmArguments>${jacoco.agent.it.arg} ${wildfly.argline}</javaVmArguments>-->
+                        <!--<javaVmArguments>${wildfly.argline}</javaVmArguments>-->
                         <jboss.home>${project.basedir}/target/wildfly/wildfly-${version.wildfly}</jboss.home>
                         <module.path>${project.basedir}/target/wildfly/wildfly-${version.wildfly}/modules</module.path>
                         <java.util.logging.config.file>${basedir}/src/test/resources/logging.properties</java.util.logging.config.file>
@@ -139,15 +137,6 @@
                     <execution>
                         <goals>
                             <goal>integration-test</goal>
-                        </goals>
-                        <!-- Breaks the arquillian-jacoco-extension -->
-                        <!--<configuration>-->
-                            <!--<argLine>${jacoco.agent.it.arg} ${wildfly.argline}</argLine>-->
-                        <!--</configuration>-->
-                    </execution>
-                    <execution>
-                        <id>verify</id>
-                        <goals>
                             <goal>verify</goal>
                         </goals>
                     </execution>
