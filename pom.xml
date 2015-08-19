@@ -102,8 +102,8 @@
                         </goals>
                         <!--<phase>compile</phase>-->
                         <configuration>
-                            <dataFile>${project.build.directory}/jacoco-it.exec</dataFile>
-                            <propertyName>jacoco.agent.it.arg</propertyName>
+                            <destFile>${project.build.directory}/jacoco-it.exec</destFile>
+                            <!--<propertyName>jacoco.agent.it.arg</propertyName>-->
                         </configuration>
                     </execution>
                 </executions>
