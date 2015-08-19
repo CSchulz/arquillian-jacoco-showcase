@@ -1,0 +1,12 @@
+<arquillian xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemalocation="http://jboss.org/schema/arquillian http://jboss.org/schema/arquillian/arquillian-1.0.xsd">
+  <container qualifier="jboss-managed" default="true">
+    <configuration>
+      <property name="chameleonTarget">wildfly:${wildfly.version}:managed</property>
+      <property name="deploymentExportPath">target/arquillian</property>
+      <property name="javaVmArguments">${wildfly.argline}</property>
+      <!-- Doesnt work, jacoco.agent.it.arg isn't available here, if you dont change the phase of default-prepare-agent-integration -->
+      <!-- Doesnt work neither after changing the phase of default-prepare-agent-integration IllegalStateException: Class Recipe is already instrumented.-->
+      <!--<property name="javaVmArguments">${jacoco.agent.it.arg} ${wildfly.argline}</property>-->
+    </configuration>
+  </container>
+</arquillian>
